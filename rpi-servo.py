@@ -24,7 +24,7 @@ def angle_to_dutycycle(angle: int) -> float:
 GPIO.setmode(GPIO.BCM)
 
 ## Choose an appropriate pwm channel to be used to control the servo
-servo_pin = 14
+servo_pin = 12
 
 ## Set the pin as an output
 GPIO.setup(servo_pin, GPIO.OUT)
