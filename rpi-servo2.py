@@ -1,8 +1,13 @@
+# libraries needed for hardware pwm
 import gpiozero as GPIO
+from gpiozero.pins.pigpio import PiGPIOFactory
 import time
 
-factory = GPIO.PiGPIOFactory()
-my_servo = GPIO.AngularServo(12, initial_angle=90, min_angle=0, max_angle=180,
+factory = PiGPIOFactory() # setup to use PiGPIO for hardware PWM
+
+# Setting up servo with known parameters for 0 degrees as min angle and 180 degrees as max angle
+servo_pin = 12
+my_servo = GPIO.AngularServo(servo_pin, initial_angle=90, min_angle=0, max_angle=180,
                              min_pulse_width=0.5/1000, max_pulse_width=2.5/1000,
                              frame_width=20/1000, pin_factory=factory)
 # Main program
@@ -17,6 +22,8 @@ try:
     
     print("Angle: ", angle) # statement to feedback angle to user
     my_servo.angle=int(angle) # rotate servo to angle specified by user
+
+    time.sleep(1) # delay before next angle input
 
 ## Halts program when user Ctrl + C
 except KeyboardInterrupt:

@@ -50,6 +50,8 @@ try:
     print("Angle: ", angle, "Duty Cycle: ", duty_cycle) # statement to feedback angle and duty cycle to user
     my_servo.ChangeDutyCycle(duty_cycle) # change duty cycle to the calculated duty cycle based on angle input
 
+    time.sleep(1) # delay before next angle input
+
 ## Halts program when user Ctrl + C
 except KeyboardInterrupt:
   my_servo.stop()
