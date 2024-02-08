@@ -21,11 +21,10 @@ try:
       continue
     
     print("Angle: ", angle) # statement to feedback angle to user
-    my_servo.angle=int(angle) # rotate servo to angle specified by user
+    my_servo.angle = int(angle) # rotate servo to angle specified by user
 
     time.sleep(1) # delay before next angle input
 
 ## Halts program when user Ctrl + C
 except KeyboardInterrupt:
-  my_servo.stop()
-  GPIO.cleanup()
+  my_servo.close()
