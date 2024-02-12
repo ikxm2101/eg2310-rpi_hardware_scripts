@@ -21,4 +21,3 @@ try:
 
 except KeyboardInterrupt:
   sole_switch.close()
-  GPIO.cleanup()
